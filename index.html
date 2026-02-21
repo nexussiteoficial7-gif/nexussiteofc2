@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Nexus System</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+nav a{
+  margin-left:30px;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  opacity:0.8;
+}
+
+nav a:hover{
+  opacity:1;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:radial-gradient(circle at top, #222, #000);
+}
+
+.hero h1{
+  font-size:64px;
+  font-weight:800;
+  text-transform:uppercase;
+  animation:fadeUp 1.5s ease;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:18px;
+  opacity:0.7;
+  max-width:600px;
+}
+
+.hero button{
+  margin-top:40px;
+  padding:16px 50px;
+  font-size:16px;
+  border:none;
+  cursor:pointer;
+  background:#fff;
+  color:#000;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.hero button:hover{
+  transform:scale(1.05);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:120px 80px;
+}
+
+.section-title{
+  font-size:48px;
+  margin-bottom:60px;
+}
+
+/* ===== CARDS ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.03);
+  padding:40px;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#fff;
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+.card p{
+  font-size:14px;
+  opacity:0.7;
+}
+
+.card button{
+  margin-top:30px;
+  padding:12px 30px;
+  background:#fff;
+  color:#000;
+  border:none;
+  cursor:pointer;
+}
+
+/* ===== MODAL COMPRA ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-content{
+  text-align:center;
+  animation:pulse 2s infinite;
+}
+
+.modal-content h2{
+  font-size:36px;
+}
+
+.modal-content p{
+  margin-top:20px;
+  opacity:0.7;
+}
+
+.modal-content button{
+  margin-top:40px;
+  padding:14px 40px;
+  background:#fff;
+  color:#000;
+  border:none;
+  cursor:pointer;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pulse{
+  0%{opacity:0.7;}
+  50%{opacity:1;}
+  100%{opacity:0.7;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">NEXUS</div>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Nexus System</h1>
+  <p>Construímos soluções digitais modernas, futuristas e personalizadas.</p>
+  <button onclick="scrollToProducts()">Explorar</button>
+</div>
+
+<section id="servicos">
+  <h2 class="section-title">O que fazemos</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Sites Profissionais</h3>
+      <p>Desenvolvimento de sites modernos com foco em performance e design.</p>
+    </div>
+    <div class="card">
+      <h3>Painéis Personalizados</h3>
+      <p>Sistemas sob medida com funcionalidades definidas pelo cliente.</p>
+    </div>
+    <div class="card">
+      <h3>Design Digital</h3>
+      <p>Logos, banners, vídeos e identidade visual completa.</p>
+    </div>
+  </div>
+</section>
+
+<section id="produtos">
+  <h2 class="section-title">Produtos</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Nexus Criador Site</h3>
+      <p>Site desenvolvido conforme as especificações desejadas pelo cliente.</p>
+      <button onclick="openModal()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Nexus Painel</h3>
+      <p>Painel moderno com design e funções definidas pelo cliente.</p>
+      <button onclick="openModal()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Nexus Design</h3>
+      <p>Criação de fotos, vídeos, banners e logos personalizados.</p>
+      <button onclick="openModal()">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>Entre em contato com nossa equipe</h2>
+    <p>Para adquirir este produto, fale diretamente conosco.</p>
+    <button onclick="closeModal()">Voltar</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById('modal').classList.add('active');
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+}
+
+function scrollToProducts(){
+  document.getElementById('produtos').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
